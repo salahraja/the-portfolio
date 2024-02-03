@@ -1,0 +1,151 @@
+---
+import DarkMode from "./contentAbout/DarkMode.astro"
+import SpotifyPresence from "./contentAbout/SpotifyPresence.astro";
+import { DiscordStatus } from "./DiscordStatus"
+import Weather from "./contentAbout/Weather.astro";
+import { getLangFromUrl, useTranslations } from '../i18n/utils';
+import ChangeLanguage from "./contentAbout/ChangeLanguage.astro";
+import { MiniBento } from "./MiniBento";
+
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
+---
+
+<!-- About me -->
+<article class="bg-white dark:bg-[#0D1116] dark:text-white relative border-2 dark:border-[#30363D] col-span-3 aspect-square md:aspect-auto md:row-span-2 rounded-3xl overflow-hidden p-2 md:p-4 transition duration-300 delay-75 ease-in-out">
+  <div class="float-right pt-2 pr-2">
+    <img loading="lazy" class="w-auto h-24 md:h-32 lg:h-36" src="" alt="Salah Avatar">
+  </div>
+  <div class="lg:absolute lg:bottom-1 line-clamp-3 sm:text-[1.8rem] min-h-[15dvh]">
+    <div class="md:w-8/12 p-2 md:px-1 md:py-4 flex flex-col justify-start md:justify-end">
+      <div class="flex flex-col md:gap-1 lg:gap-2">
+        <h1 class="text-2xl font-bold md:text-3xl lg:text-lg md:pt-10">{t('about.hi')}</h1>
+        <h2 class="text-[#e1a028] text-2xl font-bold md:text-3xl lg:text-xl">Salah</h2>
+      </div>
+      <p class="pt-2 lg:pt-4 md:text-lg lg:text-xl">{t('about.description')}</p>
+    </div>
+    <p class="px-2 md:px-1 md:text-lg lg:text-xl hidden sm:block">
+      {t('about.description-two')}
+    </p>
+  </div>
+</article>
+
+<DiscordStatus client:visible/>
+
+<ChangeLanguage/>
+
+<DarkMode/>
+
+<!-- LinkedIn -->
+  <a href="https://www.linkedin.com/in/salah-raja/" class="bg-[#0077b6]  border-2 dark:border-[#30363D] dark:bg-[#0353a4] text-white flex flex-col justify-center items-center rounded-2xl relative col-span-1 aspect-square text-center p-4 lg:hover:scale-[103%] transition duration-300 delay-75 ease-in-out" target="_blank" rel="noopener noreferrer">
+    <div class="sm:scale-175">
+      <svg xmlns="http://www.w3.org/2000/svg"  class="inline-flex w-8 md:w-10" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+        <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+        <path d="M4 4m0 2a2 2 0 0 1 2 -2h12a2 2 0 0 1 2 2v12a2 2 0 0 1 -2 2h-12a2 2 0 0 1 -2 -2z"></path>
+        <path d="M8 11l0 5"></path>
+        <path d="M8 8l0 .01"></path>
+        <path d="M12 16l0 -5"></path>
+        <path d="M16 16v-3a2 2 0 0 0 -4 0"></path>
+      </svg>
+    </div>
+  </a>
+
+  <!-- Portfolio projects -->
+  <a href="https://luizack.site/#proyectos" class="relative border-2 dark:border-[#30363D] text-white md:aspect-auto rounded-2xl w-full col-span-2 overflow-hidden lg:hover:scale-[103%] transition duration-300 delay-75 ease-in-out" target="_blank" rel="noopener noreferrer">
+    <div class="w-full h-full bg-[#00000077] absolute text-center">
+        <img loading="lazy" width="480" height="480" class="absolute w-full h-full object-cover object-center top-0 left-0 -z-10" style="color:transparent" src="/assets/coding.gif" alt="Projects">
+    </div>
+    <div class="absolute top-2 right-2 bg-white rounded-full p-1">
+        <svg xmlns="http://www.w3.org/2000/svg" class="stroke-black" width="16" height="16" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+            <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+            <path d="M17 7l-10 10"></path>
+            <path d="M8 7l9 0l0 9"></path>
+        </svg>
+    </div>
+    <div class="w-full h-full absolute top-0 left-0 text-white p-4 z-10 pointer-events-none">
+        <h3 class="text-white text-sm md:text-md lg:text-lg font-bold text-right pr-8 my-2">{t('projects-works')}</h3>
+        <p class="text-white text-sm md:text-md lg:text-2xl text-center">{t('projects-description')}</p>
+    </div>
+</a>
+
+
+   <SpotifyPresence/>
+
+   <!-- Experience -->
+  <article class="col-span-1 sm:col-span-1 flex flex-col justify-between gap-2 md:gap-4">
+  <a href="https://twitter.com/" class="text-white rounded-2xl flex relative overflow-hidden aspect-square shadow-sm bg-[#1c053a9c] p-4 justify-center items-center border-2 dark:border-[#30363D] lg:hover:scale-[103%] transition duration-300 delay-75 ease-in-out"  target="_blank" rel="noopener noreferrer">
+     <div class="sm:scale-175">
+       <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" stroke-width="2" stroke="#fff" fill="none" stroke-linecap="round" stroke-linejoin="round">
+         <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+         <path d="M4 4l11.733 16h4.267l-11.733 -16z"></path>
+         <path d="M4 20l6.768 -6.768m2.46 -2.46l6.772 -6.772"></path>
+       </svg>
+     </div>
+  </a>
+
+  <article class="rounded-2xl flex relative overflow-hidden aspect-square shadow-sm bg-[#6DD2B7] p-4 text-white justify-center items-center border-2 dark:border-[#30363D] dark:bg-[#0D1116] transition duration-300 delay-75 ease-in-out">
+    <div class="flex justify-center items-center flex-col">
+      <p class="text-4xl md:text-8xl font-bold">2</p>
+      <p class="text-xs md:text-xl uppercase font-semibold text-center pb-1">{t('experience-years')}</p>
+    </div>
+  </article>
+</article>
+
+ <Weather/>
+
+ <!-- Mail -->
+ <a class="border-2 bg-[#D8858D] dark:border-[#30363D] dark:bg-[#0D1116] dark:text-white text-white rounded-2xl relative w-full p-4 col-span-1 flex flex-col justify-center items-center aspect-square lg:hover:scale-[103%] transition duration-300 delay-75 ease-in-out" href="mailto:salah7252@icloud.com" target="_blank">
+  <div class="absolute top-2 right-2 bg-white rounded-full p-1">
+     <svg xmlns="http://www.w3.org/2000/svg" class="stroke-black " width="16" height="16" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+      <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+      <path d="M17 7l-10 10"></path>
+      <path d="M8 7l9 0l0 9"></path>
+    </svg>
+  </div>
+
+   <div class="sm:scale-175">
+     <svg xmlns="http://www.w3.org/2000/svg" class="stroke-white inline-flex w-8 md:w-10" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+   <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+   <path d="M3 7a2 2 0 0 1 2 -2h14a2 2 0 0 1 2 2v10a2 2 0 0 1 -2 2h-14a2 2 0 0 1 -2 -2v-10z"></path>
+   <path d="M3 7l9 6l9 -6"></path>
+</svg>
+   </div>
+  </a>
+
+  <!-- CV -->
+  <a href="public/assets/Salah Uddin Resume.pdf" class="border-2 -pb-[244%] bg-white dark:border-[#30363D] dark:bg-[#0D1116] dark:text-white rounded-2xl relative w-full p-4 col-span-1 flex flex-col justify-center items-center aspect-square text-center font-bold md:text-xl lg:hover:scale-[103%] transition duration-300 delay-75 ease-in-out" target="_blank" rel="noopener noreferrer">
+   <div class="absolute top-2 right-2 dark:bg-white rounded-full p-1">
+      <svg xmlns="http://www.w3.org/2000/svg" class="stroke-black" width="16" height="16" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+      <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+      <path d="M4 17v2a2 2 0 0 0 2 2h12a2 2 0 0 0 2 -2v-2"></path>
+      <path d="M7 11l5 5l5 -5"></path>
+      <path d="M12 4l0 12"></path>
+      </svg>
+    </div>
+    <div class="absolute top-2 left-2">
+      <p class="text-sm font-bold">
+        CV
+      </p>
+    </div>
+     <div class="sm:scale-175">
+      <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" aria-hidden="true" class="inline-flex w-8 md:w-10"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path></svg>
+     </div>
+  </a>
+<MiniBento/>
+<a href="https://github.com/salahraja" target="_blank" rel="noopener noreferrer" class="rounded-2xl h-[140px] col-span-2 -mt-[156px] overflow-hidden cursor-pointer border-2 dark:border-[#30363D] lg:hover:scale-[103%] transition duration-300 delay-75 ease-in-out">
+
+  <div class="relative w-full h-full p-2 bg-[#00000077]">
+  <img loading="lazy" width="498" height="280" class="absolute w-full h-full object-cover object-center top-0 left-0 -z-10" style="color:transparent" src="/assets/giphy.gif" alt="GitHub">
+  <div class="absolute top-2 right-2 bg-white rounded-full p-1">
+    <svg xmlns="http://www.w3.org/2000/svg" class="stroke-black" width="16" height="16" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+    <path d="M17 7l-10 10"></path>
+    <path d="M8 7l9 0l0 9"></path>
+  </svg>
+  </div>
+        <h2 class="text-white text-sm md:text-xl lg:text-3xl font-bold">Github</h2>
+        <p class="text-white text-sm md:text-md lg:text-2xl">{t("description-github")}</p>
+    </div>
+</div>
+</div>
+</a>
