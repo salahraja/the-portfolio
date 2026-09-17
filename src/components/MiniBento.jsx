@@ -2,7 +2,7 @@ const svgColor = "text-red-500";
 
 export const MiniBento = () => {
   return (
-    <div class="w-[13.5dvw] min-w-[9.5dvw] min-h-[9.5dvw] h-[13.3dvw] grid grid-cols-4 overflow-x-clip gap-2">
+    <div class="w-32 h-32 md:w-44 md:h-44 grid grid-cols-4 overflow-x-clip gap-2">
       {/* Astro */}
       <div class="clay relative text-white md:aspect-auto rounded-2xl w-full overflow-hidden lg:hover:scale-[103%] transition duration-300 delay-75 ease-in-out">
         <div class="absolute inset-0 flex items-center justify-center bg-[#00000077]">
