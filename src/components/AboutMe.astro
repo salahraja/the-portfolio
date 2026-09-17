@@ -13,8 +13,9 @@ const t = useTranslations(lang);
 
 <!-- About me -->
 <article style="--clay-tint: 136, 58, 234" class="clay bg-[#F7F5FB] dark:bg-[#0D1116] dark:text-white relative col-span-3 aspect-square md:aspect-auto md:row-span-2 rounded-3xl overflow-hidden p-2 md:p-4 transition duration-300 delay-75 ease-in-out">
-  <div class="float-right pt-2 pr-2">
-    <img loading="lazy" class="w-auto h-24 md:h-32 lg:h-36" src="" alt="Salah Avatar">
+  <!-- TODO: add a real avatar image to public/assets and set its src here -->
+  <div class="float-right pt-2 pr-2 hidden">
+    <img loading="lazy" class="w-auto h-24 md:h-32 lg:h-36" src="/assets/avatar.png" alt="Salah Avatar">
   </div>
   <div class="lg:absolute lg:bottom-1 line-clamp-3 sm:text-[1.8rem] min-h-[15dvh]">
     <div class="md:w-8/12 p-2 md:px-1 md:py-4 flex flex-col justify-start md:justify-end">
@@ -122,20 +123,17 @@ const t = useTranslations(lang);
      </div>
   </a>
 <MiniBento/>
-<a href="https://github.com/salahraja" target="_blank" rel="noopener noreferrer" class="clay rounded-2xl h-[140px] col-span-2 -mt-[156px] overflow-hidden cursor-pointer lg:hover:scale-[103%] transition duration-300 delay-75 ease-in-out">
-
+<a href="https://github.com/salahraja" target="_blank" rel="noopener noreferrer" class="clay rounded-2xl h-[140px] col-span-2 overflow-hidden cursor-pointer lg:hover:scale-[103%] transition duration-300 delay-75 ease-in-out">
   <div class="relative w-full h-full p-2 bg-[#00000077]">
-  <img loading="lazy" width="498" height="280" class="absolute w-full h-full object-cover object-center top-0 left-0 -z-10" style="color:transparent" src="/assets/giphy.gif" alt="GitHub">
-  <div class="absolute top-2 right-2 bg-white rounded-full p-1">
-    <svg xmlns="http://www.w3.org/2000/svg" class="stroke-black" width="16" height="16" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
-    <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
-    <path d="M17 7l-10 10"></path>
-    <path d="M8 7l9 0l0 9"></path>
-  </svg>
-  </div>
-        <h2 class="text-white text-sm md:text-xl lg:text-3xl font-bold">Github</h2>
-        <p class="text-white text-sm md:text-md lg:text-2xl">{t("description-github")}</p>
+    <img loading="lazy" width="498" height="280" class="absolute w-full h-full object-cover object-center top-0 left-0 -z-10" style="color:transparent" src="/assets/giphy.gif" alt="GitHub">
+    <div class="absolute top-2 right-2 bg-white rounded-full p-1">
+      <svg xmlns="http://www.w3.org/2000/svg" class="stroke-black" width="16" height="16" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+        <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+        <path d="M17 7l-10 10"></path>
+        <path d="M8 7l9 0l0 9"></path>
+      </svg>
     </div>
-</div>
-</div>
+    <h2 class="text-white text-sm md:text-xl lg:text-3xl font-bold">Github</h2>
+    <p class="text-white text-sm md:text-md lg:text-2xl">{t("description-github")}</p>
+  </div>
 </a>
