@@ -12,7 +12,7 @@ const t = useTranslations(lang);
 ---
 
 <!-- About me -->
-<article class="bg-white dark:bg-[#0D1116] dark:text-white relative border-2 dark:border-[#30363D] col-span-3 aspect-square md:aspect-auto md:row-span-2 rounded-3xl overflow-hidden p-2 md:p-4 transition duration-300 delay-75 ease-in-out">
+<article style="--clay-tint: 136, 58, 234" class="clay bg-[#F7F5FB] dark:bg-[#0D1116] dark:text-white relative col-span-3 aspect-square md:aspect-auto md:row-span-2 rounded-3xl overflow-hidden p-2 md:p-4 transition duration-300 delay-75 ease-in-out">
   <div class="float-right pt-2 pr-2">
     <img loading="lazy" class="w-auto h-24 md:h-32 lg:h-36" src="" alt="Salah Avatar">
   </div>
@@ -37,7 +37,7 @@ const t = useTranslations(lang);
 <DarkMode/>
 
 <!-- LinkedIn -->
-  <a href="https://www.linkedin.com/in/salah-raja/" class="bg-[#0077b6]  border-2 dark:border-[#30363D] dark:bg-[#0353a4] text-white flex flex-col justify-center items-center rounded-2xl relative col-span-1 aspect-square text-center p-4 lg:hover:scale-[103%] transition duration-300 delay-75 ease-in-out" target="_blank" rel="noopener noreferrer">
+  <a href="https://www.linkedin.com/in/salah-raja/" style="--clay-tint: 0, 119, 182" class="clay bg-[#0077b6] dark:bg-[#0353a4] text-white flex flex-col justify-center items-center rounded-2xl relative col-span-1 aspect-square text-center p-4 lg:hover:scale-[103%] transition duration-300 delay-75 ease-in-out" target="_blank" rel="noopener noreferrer">
     <div class="sm:scale-175">
       <svg xmlns="http://www.w3.org/2000/svg"  class="inline-flex w-8 md:w-10" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
         <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
@@ -51,7 +51,7 @@ const t = useTranslations(lang);
   </a>
 
   <!-- Portfolio projects -->
-  <a href="https://luizack.site/#proyectos" class="relative border-2 dark:border-[#30363D] text-white md:aspect-auto rounded-2xl w-full col-span-2 overflow-hidden lg:hover:scale-[103%] transition duration-300 delay-75 ease-in-out" target="_blank" rel="noopener noreferrer">
+  <a href="https://luizack.site/#proyectos" class="clay relative text-white md:aspect-auto rounded-2xl w-full col-span-2 overflow-hidden lg:hover:scale-[103%] transition duration-300 delay-75 ease-in-out" target="_blank" rel="noopener noreferrer">
     <div class="w-full h-full bg-[#00000077] absolute text-center">
         <img loading="lazy" width="480" height="480" class="absolute w-full h-full object-cover object-center top-0 left-0 -z-10" style="color:transparent" src="/assets/coding.gif" alt="Projects">
     </div>
@@ -73,17 +73,7 @@ const t = useTranslations(lang);
 
    <!-- Experience -->
   <article class="col-span-1 sm:col-span-1 flex flex-col justify-between gap-2 md:gap-4">
-  <a href="https://twitter.com/" class="text-white rounded-2xl flex relative overflow-hidden aspect-square shadow-sm bg-[#1c053a9c] p-4 justify-center items-center border-2 dark:border-[#30363D] lg:hover:scale-[103%] transition duration-300 delay-75 ease-in-out"  target="_blank" rel="noopener noreferrer">
-     <div class="sm:scale-175">
-       <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" stroke-width="2" stroke="#fff" fill="none" stroke-linecap="round" stroke-linejoin="round">
-         <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
-         <path d="M4 4l11.733 16h4.267l-11.733 -16z"></path>
-         <path d="M4 20l6.768 -6.768m2.46 -2.46l6.772 -6.772"></path>
-       </svg>
-     </div>
-  </a>
-
-  <article class="rounded-2xl flex relative overflow-hidden aspect-square shadow-sm bg-[#6DD2B7] p-4 text-white justify-center items-center border-2 dark:border-[#30363D] dark:bg-[#0D1116] transition duration-300 delay-75 ease-in-out">
+  <article style="--clay-tint: 109, 210, 183" class="clay rounded-2xl flex relative overflow-hidden aspect-square bg-[#6DD2B7] p-4 text-white justify-center items-center dark:bg-[#0D1116] transition duration-300 delay-75 ease-in-out">
     <div class="flex justify-center items-center flex-col">
       <p class="text-4xl md:text-8xl font-bold">2</p>
       <p class="text-xs md:text-xl uppercase font-semibold text-center pb-1">{t('experience-years')}</p>
@@ -94,7 +84,7 @@ const t = useTranslations(lang);
  <Weather/>
 
  <!-- Mail -->
- <a class="border-2 bg-[#D8858D] dark:border-[#30363D] dark:bg-[#0D1116] dark:text-white text-white rounded-2xl relative w-full p-4 col-span-1 flex flex-col justify-center items-center aspect-square lg:hover:scale-[103%] transition duration-300 delay-75 ease-in-out" href="mailto:salah7252@icloud.com" target="_blank">
+ <a style="--clay-tint: 216, 133, 141" class="clay bg-[#D8858D] dark:bg-[#0D1116] dark:text-white text-white rounded-2xl relative w-full p-4 col-span-1 flex flex-col justify-center items-center aspect-square lg:hover:scale-[103%] transition duration-300 delay-75 ease-in-out" href="mailto:salah7252@icloud.com" target="_blank">
   <div class="absolute top-2 right-2 bg-white rounded-full p-1">
      <svg xmlns="http://www.w3.org/2000/svg" class="stroke-black " width="16" height="16" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
       <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
@@ -113,7 +103,7 @@ const t = useTranslations(lang);
   </a>
 
   <!-- CV -->
-  <a href="public/assets/Salah Uddin Resume.pdf" class="border-2 -pb-[244%] bg-white dark:border-[#30363D] dark:bg-[#0D1116] dark:text-white rounded-2xl relative w-full p-4 col-span-1 flex flex-col justify-center items-center aspect-square text-center font-bold md:text-xl lg:hover:scale-[103%] transition duration-300 delay-75 ease-in-out" target="_blank" rel="noopener noreferrer">
+  <a href="/assets/Salah%20Uddin%20Resume.pdf" style="--clay-tint: 136, 58, 234" class="clay -pb-[244%] bg-[#F7F5FB] dark:bg-[#0D1116] dark:text-white rounded-2xl relative w-full p-4 col-span-1 flex flex-col justify-center items-center aspect-square text-center font-bold md:text-xl lg:hover:scale-[103%] transition duration-300 delay-75 ease-in-out" target="_blank" rel="noopener noreferrer">
    <div class="absolute top-2 right-2 dark:bg-white rounded-full p-1">
       <svg xmlns="http://www.w3.org/2000/svg" class="stroke-black" width="16" height="16" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
       <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
@@ -132,7 +122,7 @@ const t = useTranslations(lang);
      </div>
   </a>
 <MiniBento/>
-<a href="https://github.com/salahraja" target="_blank" rel="noopener noreferrer" class="rounded-2xl h-[140px] col-span-2 -mt-[156px] overflow-hidden cursor-pointer border-2 dark:border-[#30363D] lg:hover:scale-[103%] transition duration-300 delay-75 ease-in-out">
+<a href="https://github.com/salahraja" target="_blank" rel="noopener noreferrer" class="clay rounded-2xl h-[140px] col-span-2 -mt-[156px] overflow-hidden cursor-pointer lg:hover:scale-[103%] transition duration-300 delay-75 ease-in-out">
 
   <div class="relative w-full h-full p-2 bg-[#00000077]">
   <img loading="lazy" width="498" height="280" class="absolute w-full h-full object-cover object-center top-0 left-0 -z-10" style="color:transparent" src="/assets/giphy.gif" alt="GitHub">

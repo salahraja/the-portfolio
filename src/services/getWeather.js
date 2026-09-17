@@ -1,8 +1,25 @@
+const getCoords = () =>
+  new Promise((resolve) => {
+    if (!navigator.geolocation) {
+      resolve(null);
+      return;
+    }
+    navigator.geolocation.getCurrentPosition(
+      (pos) =>
+        resolve({ lat: pos.coords.latitude, lon: pos.coords.longitude }),
+      () => resolve(null),
+      { timeout: 5000 }
+    );
+  });
+
 export const getWeather = async () => {
   try {
-    // Weather
-    const url = `https://api.openweathermap.org/data/2.5/weather?q=Chicago&lang=es&units=imperial&appid=23be4d8794397dd3f0ffaba6e3b678d1
-    `;
+    const appId = "23be4d8794397dd3f0ffaba6e3b678d1";
+    const coords = await getCoords();
+
+    const url = coords
+      ? `https://api.openweathermap.org/data/2.5/weather?lat=${coords.lat}&lon=${coords.lon}&lang=es&units=imperial&appid=${appId}`
+      : `https://api.openweathermap.org/data/2.5/weather?q=Chicago&lang=es&units=imperial&appid=${appId}`;
 
     const res = await fetch(url);
     if (!res.ok) {
@@ -12,11 +29,12 @@ export const getWeather = async () => {
     const json = await res.json();
 
     if (json && json.main && json.main.temp) {
-      let temp = json.main.temp.toString().slice(0, 2),
+      let temp = Math.round(json.main.temp),
         weather = json.weather[0].main,
-        weatherEs = json.weather[0].description;
+        weatherEs = json.weather[0].description,
+        city = json.name;
 
-      return { temp, weather, weatherEs };
+      return { temp, weather, weatherEs, city };
     } else {
       throw new Error(
         "No se encontró la propiedad 'temp' en la respuesta JSON."

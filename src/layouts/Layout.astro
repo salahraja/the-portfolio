@@ -5,11 +5,11 @@ interface Props {
 	description: string;
 }
 
-const { title } = Astro.props;
+const { title, language } = Astro.props;
 ---
 
 <!doctype html>
-<html lang="en">
+<html lang={language ?? "en"}>
 	<head>
 		<meta charset="UTF-8" />
 		<meta name="description" content="Astro description" />
@@ -49,5 +49,30 @@ const { title } = Astro.props;
 			Bitstream Vera Sans Mono,
 			Courier New,
 			monospace;
+	}
+
+	/* Claymorphism: one outer drop shadow toward the bottom-right, tinted to
+	   the card's own color, plus an inset highlight concentrated along the
+	   TOP edge only (a glossy dome rim), not a diagonal wash across the
+	   whole surface. */
+	.clay {
+		/* Neutral default for dark/overlay surfaces (photos, black scrims);
+		   boxes with a real background color override this inline to match
+		   their own hue, and the white cards opt back into the accent purple
+		   explicitly rather than getting it as an unrelated fallback. */
+		--clay-tint: 20, 20, 28;
+		border: none !important;
+		border-radius: 32px !important;
+		box-shadow:
+			8px 14px 28px rgba(var(--clay-tint), 0.45),
+			inset 0 12px 16px -4px rgba(255, 255, 255, 0.85),
+			inset 0 -10px 16px -4px rgba(0, 0, 0, 0.2);
+	}
+
+	.dark .clay {
+		box-shadow:
+			8px 14px 28px rgba(var(--clay-tint), 0.65),
+			inset 0 12px 16px -4px rgba(255, 255, 255, 0.22),
+			inset 0 -10px 16px -4px rgba(0, 0, 0, 0.45);
 	}
 </style>

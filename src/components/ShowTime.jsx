@@ -41,6 +41,7 @@ function ShowTime() {
   useEffect(() => {
     const interval = setInterval(() => {
       setCurrentHours(getCurrentHours());
+      setHourConditional(getHoursConditional());
     }, 1000);
 
     return () => {
@@ -71,10 +72,7 @@ function ShowTime() {
   }
 
   function getHoursConditional() {
-    const currentTime = getCurrentHours();
-    const currentHour = parseInt(currentTime.split(":")[0]) + 12;
-
-    return currentHour;
+    return new Date().getHours();
   }
 
   if (isLoading) {
@@ -113,7 +111,11 @@ function ShowTime() {
           </p>
           <p class="text-xs md:text-md lg:text-lg">{currentHours}</p>
           <p class="text-xs md:text-md lg:text-lg">
-            {language === "en" ? "In Chicagoland" : "En Chicago"}
+            {weather?.city
+              ? language === "en"
+                ? `In ${weather.city}`
+                : `En ${weather.city}`
+              : ""}
           </p>
         </div>
       </div>

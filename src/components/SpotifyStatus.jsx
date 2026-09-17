@@ -48,39 +48,33 @@ export const SpotifyStatus = () => {
     );
   }
 
+  const spotify = activityData?.data?.spotify ?? null;
+
   return (
     <div class="flex flex-col gap-4">
       <div>
         <p class="text-[#ffffff] font-bold text-xs lg:text-2xl md:text-xl">
-          {activityData?.data?.spotify === null
+          {spotify === null
             ? language === "en"
-              ? "Recently listened"
-              : "Escuchado recientemente"
+              ? "Not listening"
+              : "No está escuchando"
             : language === "en"
             ? "Listening now"
             : "Escuchando ahora"}
         </p>
         <div class="flex flex-col gap-1">
           <p class="text-[#ffffff] w-full xl:text-xl lg:text-lg text-xs font-semibold truncate">
-            {activityData?.data?.spotify === null
-              ? "DIOR"
-              : activityData?.data?.spotify.song}
+            {spotify === null ? "—" : spotify.song}
           </p>
           <p class="text-[#ffffff] w-full xl:text-xl lg:text-lg text-xs truncate">
-            {activityData?.data?.spotify === null
-              ? "REV"
-              : activityData?.data?.spotify.artist}
+            {spotify === null ? "" : spotify.artist}
           </p>
         </div>
       </div>
       <img
         loading="lazy"
         class="absolute w-full h-full top-0 left-0 object-center object-cover z-[-1]"
-        src={
-          activityData?.data?.spotify === null
-            ? "../assets/spotify-offline.jpeg"
-            : `${activityData?.data?.spotify.album_art_url}`
-        }
+        src={spotify === null ? "../assets/spotify-offline.jpeg" : spotify.album_art_url}
         alt="Spotify Album"
       ></img>
     </div>
