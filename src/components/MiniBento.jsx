@@ -5,8 +5,8 @@ export const MiniBento = () => {
     <div class="w-[13.5dvw] min-w-[9.5dvw] min-h-[9.5dvw] h-[13.3dvw] grid grid-cols-4 overflow-x-clip gap-2">
       {/* Astro */}
       <div class="clay relative text-white md:aspect-auto rounded-2xl w-full overflow-hidden lg:hover:scale-[103%] transition duration-300 delay-75 ease-in-out">
-        <div class="w-full h-[200px] bg-[#00000077] absolute text-center">
-          <svg xmlns="http://www.w3.org/2000/svg" viewBox="-3.2 -4 37 37">
+        <div class="absolute inset-0 flex items-center justify-center bg-[#00000077]">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="-3.2 -4 37 37" class="w-7 h-7 md:w-9 md:h-9">
             <title>file_type_astro</title>
             <path
               fill="url(#a)"
@@ -36,11 +36,12 @@ export const MiniBento = () => {
 
       {/* Next.js */}
       <div class="clay relative text-white md:aspect-auto rounded-2xl w-full overflow-hidden lg:hover:scale-[103%] transition duration-300 delay-75 ease-in-out">
-        <div class="w-full h-[200px] bg-[#00000077] absolute text-center">
+        <div class="absolute inset-0 flex items-center justify-center bg-[#00000077]">
           <svg
             xmlns="http://www.w3.org/2000/svg"
             fill="#ffffff"
             viewBox="-32 -27 318 318"
+            class="w-7 h-7 md:w-9 md:h-9"
           >
             <path
               fill="#FFFFFF
@@ -53,12 +54,14 @@ export const MiniBento = () => {
 
       {/* Typescript */}
       <div class="clay relative text-white md:aspect-auto rounded-2xl w-full overflow-hidden lg:hover:scale-[103%] transition duration-300 delay-75 ease-in-out">
-        <div class="w-full h-[200px] bg-[#00000077] absolute text-center">
+        <div class="absolute inset-0 flex items-center justify-center bg-[#00000077]">
           <svg
             xmlns="http://www.w3.org/2000/svg"
             fill="none"
-            viewBox="3 0 258 258"
+            viewBox="0 0 32 32"
+            class="w-7 h-7 md:w-9 md:h-9"
           >
+            <rect width="32" height="32" rx="4" fill="#3178C6" />
             <path
               fill="#FFFFFF"
               d="M18.245,23.759v3.068a6.492,6.492,0,0,0,1.764.575,11.56,11.56,0,0,0,2.146.192,9.968,9.968,0,0,0,2.088-.211,5.11,5.11,0,0,0,1.735-.7,3.542,3.542,0,0,0,1.181-1.266,4.469,4.469,0,0,0,.186-3.394,3.409,3.409,0,0,0-.717-1.117,5.236,5.236,0,0,0-1.123-.877,12.027,12.027,0,0,0-1.477-.734q-.6-.249-1.08-.484a5.5,5.5,0,0,1-.813-.479,2.089,2.089,0,0,1-.516-.518,1.091,1.091,0,0,1-.181-.618,1.039,1.039,0,0,1,.162-.571,1.4,1.4,0,0,1,.459-.436,2.439,2.439,0,0,1,.726-.283,4.211,4.211,0,0,1,.956-.1,5.942,5.942,0,0,1,.808.058,6.292,6.292,0,0,1,.856.177,5.994,5.994,0,0,1,.836.3,4.657,4.657,0,0,1,.751.422V13.9a7.509,7.509,0,0,0-1.525-.4,12.426,12.426,0,0,0-1.9-.129,8.767,8.767,0,0,0-2.064.235,5.239,5.239,0,0,0-1.716.733,3.655,3.655,0,0,0-1.171,1.271,3.731,3.731,0,0,0-.431,1.845,3.588,3.588,0,0,0,.789,2.34,6,6,0,0,0,2.395,1.639q.63.26,1.175.509a6.458,6.458,0,0,1,.942.517,2.463,2.463,0,0,1,.626.585,1.2,1.2,0,0,1,.23.719,1.1,1.1,0,0,1-.144.552,1.269,1.269,0,0,1-.435.441,2.381,2.381,0,0,1-.726.292,4.377,4.377,0,0,1-1.018.105,5.773,5.773,0,0,1-1.969-.35A5.874,5.874,0,0,1,18.245,23.759Zm-5.154-7.638h4V13.594H5.938v2.527H9.92V27.375h3.171Z"
@@ -73,13 +76,12 @@ export const MiniBento = () => {
         target="_blank"
         rel="noopener noreferrer"
       >
-        <div class="w-full h-[200px] bg-[#00000077] absolute text-center">
+        <div class="absolute inset-0 flex items-center justify-center bg-[#00000077]">
           <svg
             xmlns="http://www.w3.org/2000/svg"
             fill="none"
             viewBox="-64 -119 358 358"
-            height="62"
-            width="62"
+            class="w-7 h-7 md:w-9 md:h-9"
           >
             <path
               fill="#FFFFFF"
@@ -96,13 +98,12 @@ export const MiniBento = () => {
         target="_blank"
         rel="noopener noreferrer"
       >
-        <div class="w-full h-[200px] bg-[#00000077] absolute text-center">
+        <div class="absolute inset-0 flex items-center justify-center bg-[#00000077]">
           <svg
             xmlns="http://www.w3.org/2000/svg"
             fill="none"
             viewBox="-33 -79 399 555"
-            height="55"
-            width="55"
+            class="w-7 h-7 md:w-9 md:h-9"
           >
             <path
               fill="#FFFFFF"
@@ -119,8 +120,8 @@ export const MiniBento = () => {
         target="_blank"
         rel="noopener noreferrer"
       >
-        <div class="w-full h-[200px] bg-[#00000077] absolute text-center">
-          <svg xmlns="http://www.w3.org/2000/svg" viewBox="-6 -7 44 44">
+        <div class="absolute inset-0 flex items-center justify-center bg-[#00000077]">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="-6 -7 44 44" class="w-7 h-7 md:w-9 md:h-9">
             <title>file_type_vue</title>
             <path
               d="M24.4,3.925H30L16,28.075,2,3.925H12.71L16,9.525l3.22-5.6Z"
@@ -145,8 +146,8 @@ export const MiniBento = () => {
         target="_blank"
         rel="noopener noreferrer"
       >
-        <div class="w-full h-[200px] bg-[#00000077] absolute text-center">
-          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32">
+        <div class="absolute inset-0 flex items-center justify-center bg-[#00000077]">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" class="w-7 h-7 md:w-9 md:h-9">
             <path
               fill="#00DC82"
               d="M17.7082 25H28.117c.3306 0 .6554-.0877.9417-.2545.2864-.1668.5241-.4067.6893-.6956.1652-.2888.2521-.6165.252-.95-.0001-.3335-.0873-.6611-.2528-.9498L22.7569 9.9358c-.1652-.2888-.4029-.52863-.6891-.69538-.2863-.16674-.611-.25453-.9415-.25453-.3306 0-.6553.08779-.9415.25453-.2863.16675-.524.40658-.6892.69538l-1.7874 3.1252-3.4946-6.11123c-.1653-.28878-.4031-.52857-.6894-.69529C13.2378 6.08777 12.9131 6 12.5825 6s-.6554.08777-.9417.25448c-.2864.16672-.5241.40651-.6895.69529L2.25282 22.1501c-.16548.2887-.25268.6163-.25282.9498-.00014.3335.08677.6612.252.95.16524.2889.40296.5288.68927.6956.2863.1668.61109.2545.9417.2545h6.53373c2.5888 0 4.4979-1.1471 5.8116-3.3852l3.1892-5.5719 1.7083-2.9819 5.1268 8.957h-6.8351L17.7082 25Zm-7.398-2.985-4.55972-.0011 6.83502-11.942 3.4104 5.971-2.2834 3.9909c-.8724 1.4521-1.8634 1.9812-3.4023 1.9812Z"
@@ -162,11 +163,12 @@ export const MiniBento = () => {
         target="_blank"
         rel="noopener noreferrer"
       >
-        <div class="w-full h-[200px] bg-[#00000077] absolute text-center">
+        <div class="absolute inset-0 flex items-center justify-center bg-[#00000077]">
           <svg
             xmlns="http://www.w3.org/2000/svg"
             viewBox="0 0 35 35"
             fill="none"
+            class="w-7 h-7 md:w-9 md:h-9"
           >
             <title>stitches</title>
             <circle
@@ -218,12 +220,13 @@ export const MiniBento = () => {
         target="_blank"
         rel="noopener noreferrer"
       >
-        <div class="w-full h-[200px] bg-[#00000077] absolute text-center">
+        <div class="absolute inset-0 flex items-center justify-center bg-[#00000077]">
           <svg
             x="0px"
             y="0px"
             viewBox="-7 -11 111 111"
             enable-background="new 0 0 97 97"
+            class="w-7 h-7 md:w-9 md:h-9"
           >
             <g>
               <path
@@ -248,8 +251,8 @@ export const MiniBento = () => {
         target="_blank"
         rel="noopener noreferrer"
       >
-        <div class="w-full h-[200px] bg-[#00000077] absolute text-center">
-          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32">
+        <div class="absolute inset-0 flex items-center justify-center bg-[#00000077]">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" class="w-7 h-7 md:w-9 md:h-9">
             <title>file_type_npm</title>
             <path
               d="M2,10.555H30v9.335H16v1.556H9.778V19.889H2Zm1.556,7.779H6.667V13.666H8.222v4.667H9.778V12.111H3.556Zm7.778-6.223v7.779h3.111V18.334h3.111V12.111Zm3.111,1.556H16v3.112H14.444Zm4.667-1.556v6.223h3.111V13.666h1.556v4.667h1.556V13.666h1.556v4.667h1.556V12.111Z"
@@ -266,8 +269,8 @@ export const MiniBento = () => {
         target="_blank"
         rel="noopener noreferrer"
       >
-        <div class="w-full h-[200px] bg-[#00000077] absolute text-center">
-          <svg viewBox="0 0 32 32">
+        <div class="absolute inset-0 flex items-center justify-center bg-[#00000077]">
+          <svg viewBox="0 0 32 32" class="w-7 h-7 md:w-9 md:h-9">
             <defs>
               <radialGradient
                 id="a"
@@ -306,11 +309,12 @@ export const MiniBento = () => {
         target="_blank"
         rel="noopener noreferrer"
       >
-        <div class="w-full h-[200px] bg-[#00000077] absolute text-center">
+        <div class="absolute inset-0 flex items-center justify-center bg-[#00000077]">
           <svg
             xmlns="http://www.w3.org/2000/svg"
             fill="none"
             viewBox="0 0 32 32"
+            class="w-7 h-7 md:w-9 md:h-9"
           >
             <title>file_type_vite</title>
             <path
@@ -359,8 +363,8 @@ export const MiniBento = () => {
         target="_blank"
         rel="noopener noreferrer"
       >
-        <div class="w-full h-[200px] bg-[#00000077] absolute text-center">
-          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32">
+        <div class="absolute inset-0 flex items-center justify-center bg-[#00000077]">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" class="w-7 h-7 md:w-9 md:h-9">
             <title>file_type_yaml</title>
             <path
               d="M2,12.218c.755,0,1.51-.008,2.264,0l.053.038Q5.7,13.638,7.078,15.014c.891-.906,1.8-1.794,2.7-2.7.053-.052.11-.113.192-.1.608,0,1.215,0,1.823,0a1.4,1.4,0,0,1,.353.019c-.7.67-1.377,1.369-2.069,2.05L5.545,18.8c-.331.324-.648.663-.989.975-.754.022-1.511.007-2.266.007,1.223-1.209,2.431-2.433,3.658-3.637C4.627,14.841,3.318,13.525,2,12.218Z"
