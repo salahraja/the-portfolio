@@ -41,7 +41,7 @@ export const SpotifyStatus = () => {
         <img
           loading="lazy"
           class="absolute w-full h-full top-0 left-0 object-center object-cover z-[-1]"
-          src="../assets/spotify-offline.jpeg"
+          src="/assets/spotify-offline.jpeg"
           alt="Spotify Album"
         ></img>
       </>
@@ -74,7 +74,7 @@ export const SpotifyStatus = () => {
       <img
         loading="lazy"
         class="absolute w-full h-full top-0 left-0 object-center object-cover z-[-1]"
-        src={spotify === null ? "../assets/spotify-offline.jpeg" : spotify.album_art_url}
+        src={spotify === null ? "/assets/spotify-offline.jpeg" : spotify.album_art_url}
         alt="Spotify Album"
       ></img>
     </div>
