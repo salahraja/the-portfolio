@@ -75,4 +75,24 @@ const { title, language } = Astro.props;
 			inset 0 12px 16px -4px rgba(255, 255, 255, 0.22),
 			inset 0 -10px 16px -4px rgba(0, 0, 0, 0.45);
 	}
+
+	/* Colored cards (ones that set their own --clay-tint) get an added
+	   crisp shadow hugging the bottom-right edge, on top of their tinted
+	   ambient glow. Light gray in light mode (a pure white shadow is
+	   invisible against the white page background); white in dark mode. */
+	.clay[style*="--clay-tint"] {
+		box-shadow:
+			8px 14px 28px rgba(var(--clay-tint), 0.45),
+			6px 6px 0 -2px rgba(148, 148, 158, 0.55),
+			inset 0 12px 16px -4px rgba(255, 255, 255, 0.85),
+			inset 0 -10px 16px -4px rgba(0, 0, 0, 0.2);
+	}
+
+	.dark .clay[style*="--clay-tint"] {
+		box-shadow:
+			8px 14px 28px rgba(var(--clay-tint), 0.65),
+			6px 6px 0 -2px rgba(255, 255, 255, 0.75),
+			inset 0 12px 16px -4px rgba(255, 255, 255, 0.22),
+			inset 0 -10px 16px -4px rgba(0, 0, 0, 0.45);
+	}
 </style>
