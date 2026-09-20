@@ -1,7 +1,9 @@
 ---
 import ShowTime from "../ShowTime"
+import { getLangFromUrl } from "../../i18n/utils";
+const lang = getLangFromUrl(Astro.url);
 ---
 
-<article style="--clay-tint: 8, 156, 255" class="clay rounded-3xl flex relative overflow-hidden aspect-square md:aspect-auto col-span-2 md:col-span-1 transition duration-300 delay-75 ease-in-out">
-  <ShowTime client:load/>
+<article style="--clay-tint: 8, 156, 255" class="clay rounded-3xl flex relative overflow-hidden aspect-square md:aspect-auto lg:min-h-[16rem] col-span-2 md:col-span-1 transition duration-300 delay-75 ease-in-out">
+  <ShowTime client:load lang={lang}/>
 </article>

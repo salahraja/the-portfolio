@@ -85,7 +85,6 @@ for (const { path, lang } of PAGES) {
 }
 
 test("a Spotify album image that fails to load falls back to the offline art", async ({ page }) => {
-  knownBug("SpotifyStatus has no onError handler, so an expired album-art URL shows a broken image");
   await open(page, "/", { spotify: "bad-art" });
   const ok = await page.evaluate(() => {
     const img = [...document.images].find((i) => i.alt === "Spotify Album" && i.getClientRects().length > 0);

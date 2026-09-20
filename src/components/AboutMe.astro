@@ -31,7 +31,7 @@ const t = useTranslations(lang);
   </div>
 </article>
 
-<DiscordStatus client:visible/>
+<DiscordStatus client:visible lang={lang}/>
 
 <ChangeLanguage/>
 
@@ -63,9 +63,9 @@ const t = useTranslations(lang);
             <path d="M8 7l9 0l0 9"></path>
         </svg>
     </div>
-    <div class="w-full h-full absolute top-0 left-0 text-white p-4 z-10 pointer-events-none">
-        <h3 class="text-white text-sm md:text-md lg:text-lg font-bold text-right pr-8 my-2">{t('projects-works')}</h3>
-        <p class="text-white text-sm md:text-md lg:text-2xl text-center">{t('projects-description')}</p>
+    <div class="w-full h-full absolute top-0 left-0 text-white p-2 sm:p-4 z-10 pointer-events-none">
+        <h3 class="text-white text-xs sm:text-sm md:text-md lg:text-lg font-bold text-right pr-8 my-1 sm:my-2">{t('projects-works')}</h3>
+        <p class="text-white text-xs leading-tight sm:text-sm md:text-md lg:text-2xl text-center">{t('projects-description')}</p>
     </div>
 </a>
 
@@ -76,8 +76,8 @@ const t = useTranslations(lang);
   <article class="col-span-1 sm:col-span-1 flex flex-col justify-between gap-2 md:gap-4">
   <article style="--clay-tint: 109, 210, 183" class="clay rounded-2xl flex relative overflow-hidden aspect-square bg-[#6DD2B7] p-4 text-white justify-center items-center dark:bg-[#0D1116] transition duration-300 delay-75 ease-in-out">
     <div class="flex justify-center items-center flex-col">
-      <p class="text-4xl md:text-8xl font-bold">2</p>
-      <p class="text-xs md:text-xl uppercase font-semibold text-center pb-1">{t('experience-years')}</p>
+      <p class="text-4xl md:text-6xl font-bold">2</p>
+      <p class="text-xs md:text-sm uppercase font-semibold text-center pb-1">{t('experience-years')}</p>
     </div>
   </article>
 </article>
@@ -85,7 +85,7 @@ const t = useTranslations(lang);
  <Weather/>
 
  <!-- Mail -->
- <a style="--clay-tint: 216, 133, 141" class="clay bg-[#D8858D] dark:bg-[#0D1116] dark:text-white text-white rounded-2xl relative w-full p-4 col-span-1 flex flex-col justify-center items-center aspect-square lg:hover:scale-[103%] transition duration-300 delay-75 ease-in-out" href="mailto:salah7252@icloud.com" target="_blank">
+ <a style="--clay-tint: 216, 133, 141" class="clay bg-[#D8858D] dark:bg-[#0D1116] dark:text-white text-white rounded-2xl relative w-full p-4 col-span-1 flex flex-col justify-center items-center aspect-square lg:hover:scale-[103%] transition duration-300 delay-75 ease-in-out" href="mailto:salah7252@icloud.com">
   <div class="absolute top-2 right-2 bg-white rounded-full p-1">
      <svg xmlns="http://www.w3.org/2000/svg" class="stroke-black " width="16" height="16" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
       <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>

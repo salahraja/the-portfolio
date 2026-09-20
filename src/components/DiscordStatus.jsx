@@ -1,12 +1,7 @@
-import { useState, useEffect } from "preact/hooks";
-
-export const DiscordStatus = () => {
-  const [language, setLanguage] = useState("en");
-
-  useEffect(() => {
-    const userLanguage = document.documentElement.getAttribute("lang");
-    setLanguage(userLanguage);
-  }, []);
+// `lang` comes from the page, so the HTML the server sends is already in the right language
+// instead of English until the script runs.
+export const DiscordStatus = ({ lang = "en" }) => {
+  const language = lang;
 
   return (
     <article

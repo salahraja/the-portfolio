@@ -41,7 +41,6 @@ test.describe("Spotify", () => {
   });
 
   test("never stays on 'Loading..' forever when the API never answers", async ({ page }) => {
-    knownBug("getInfo() has no timeout, so a request that hangs leaves the card on 'Loading..' indefinitely");
     await stubExternal(page, { spotify: "hang", weather: "ok" });
     await page.goto("/");
     await page.evaluate(() => window.scrollTo(0, document.body.scrollHeight));
@@ -104,16 +103,15 @@ test.describe("time and weather", () => {
     });
   }
 
-  test("uses Chicago when the visitor has not shared their location", async ({ page }) => {
+  test("asks the site's own /api/weather, never OpenWeatherMap directly (the key stays on the server)", async ({ page }) => {
     const requests: string[] = [];
-    page.on("request", (r) => /openweathermap/.test(r.url()) && requests.push(r.url()));
+    page.on("request", (r) => /\/api\/weather|openweathermap/.test(r.url()) && requests.push(r.url()));
     await open(page, "/");
     expect(requests.length).toBeGreaterThan(0);
-    expect(requests[0]).toContain("q=Chicago");
+    expect(requests.every((url) => /\/api\/weather$/.test(url))).toBe(true);
   });
 
   test("does not ask the visitor for their location just for loading the page", async ({ page }) => {
-    knownBug("getWeather() calls navigator.geolocation on every visit, which triggers a browser permission prompt");
     await page.addInitScript(() => {
       (window as any).__geoAsked = 0;
       const original = navigator.geolocation?.getCurrentPosition?.bind(navigator.geolocation);
@@ -129,14 +127,13 @@ test.describe("time and weather", () => {
   });
 
   test("a weather API error shows a sensible message, not a bare degree sign", async ({ page }) => {
-    knownBug("on failure ShowTime renders `{weather?.temp}°` with weather = null, so the card shows only '°'");
     await open(page, "/", { weather: "error" });
     const bare = await weatherCard(page).locator("p").filter({ hasText: /^°$/ }).count();
     expect(bare).toBe(0);
+    await expect(weatherCard(page)).toContainText("Weather unavailable");
   });
 
   test("never stays on 'Loading..' forever when the weather API never answers", async ({ page }) => {
-    knownBug("getWeather() has no timeout on fetch(), so a hung request leaves the card on 'Loading..' indefinitely");
     await stubExternal(page, { weather: "hang" });
     await page.goto("/");
     await expect(weatherCard(page)).not.toContainText("Loading..", { timeout: 12_000 });

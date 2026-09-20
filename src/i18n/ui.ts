@@ -11,6 +11,8 @@ export const ui = {
     "projects-description": "Follow this link to see my projects",
     "experience-years": "years of experience",
     "description-github": "My Github profile, where I upload my projects.",
+    "theme-toggle": "Toggle dark mode",
+    "weather-unavailable": "Weather unavailable",
   },
   es: {
     "about.hi": "Hola, soy ",
@@ -22,5 +24,7 @@ export const ui = {
     "projects-description": "Sigue este enlace para ver mis proyectos",
     "experience-years": "años de experiencia",
     "description-github": "Mi perfil de Github, donde subo mis proyectos.",
+    "theme-toggle": "Cambiar entre modo claro y oscuro",
+    "weather-unavailable": "Clima no disponible",
   },
 } as const;

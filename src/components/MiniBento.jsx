@@ -2,11 +2,11 @@ const svgColor = "text-red-500";
 
 export const MiniBento = () => {
   return (
-    <div class="w-32 h-32 md:w-44 md:h-44 grid grid-cols-4 overflow-x-clip gap-2">
+    <div class="w-32 h-32 md:w-44 md:h-44 grid grid-cols-4 overflow-x-clip gap-1 md:gap-2">
       {/* Astro */}
       <div class="clay relative text-white md:aspect-auto rounded-2xl w-full overflow-hidden lg:hover:scale-[103%] transition duration-300 delay-75 ease-in-out">
         <div class="absolute inset-0 flex items-center justify-center bg-[#00000077]">
-          <svg xmlns="http://www.w3.org/2000/svg" viewBox="-3.2 -4 37 37" class="w-7 h-7 md:w-9 md:h-9">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="-3.2 -4 37 37" class="w-5 h-5 md:w-9 md:h-9">
             <title>file_type_astro</title>
             <path
               fill="url(#a)"
@@ -41,7 +41,7 @@ export const MiniBento = () => {
             xmlns="http://www.w3.org/2000/svg"
             fill="#ffffff"
             viewBox="-32 -27 318 318"
-            class="w-7 h-7 md:w-9 md:h-9"
+            class="w-5 h-5 md:w-9 md:h-9"
           >
             <path
               fill="#FFFFFF
@@ -59,7 +59,7 @@ export const MiniBento = () => {
             xmlns="http://www.w3.org/2000/svg"
             fill="none"
             viewBox="0 0 32 32"
-            class="w-7 h-7 md:w-9 md:h-9"
+            class="w-5 h-5 md:w-9 md:h-9"
           >
             <rect width="32" height="32" rx="4" fill="#3178C6" />
             <path
@@ -81,7 +81,7 @@ export const MiniBento = () => {
             xmlns="http://www.w3.org/2000/svg"
             fill="none"
             viewBox="-64 -119 358 358"
-            class="w-7 h-7 md:w-9 md:h-9"
+            class="w-5 h-5 md:w-9 md:h-9"
           >
             <path
               fill="#FFFFFF"
@@ -103,7 +103,7 @@ export const MiniBento = () => {
             xmlns="http://www.w3.org/2000/svg"
             fill="none"
             viewBox="-33 -79 399 555"
-            class="w-7 h-7 md:w-9 md:h-9"
+            class="w-5 h-5 md:w-9 md:h-9"
           >
             <path
               fill="#FFFFFF"
@@ -121,7 +121,7 @@ export const MiniBento = () => {
         rel="noopener noreferrer"
       >
         <div class="absolute inset-0 flex items-center justify-center bg-[#00000077]">
-          <svg xmlns="http://www.w3.org/2000/svg" viewBox="-6 -7 44 44" class="w-7 h-7 md:w-9 md:h-9">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="-6 -7 44 44" class="w-5 h-5 md:w-9 md:h-9">
             <title>file_type_vue</title>
             <path
               d="M24.4,3.925H30L16,28.075,2,3.925H12.71L16,9.525l3.22-5.6Z"
@@ -147,7 +147,7 @@ export const MiniBento = () => {
         rel="noopener noreferrer"
       >
         <div class="absolute inset-0 flex items-center justify-center bg-[#00000077]">
-          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" class="w-7 h-7 md:w-9 md:h-9">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" class="w-5 h-5 md:w-9 md:h-9">
             <path
               fill="#00DC82"
               d="M17.7082 25H28.117c.3306 0 .6554-.0877.9417-.2545.2864-.1668.5241-.4067.6893-.6956.1652-.2888.2521-.6165.252-.95-.0001-.3335-.0873-.6611-.2528-.9498L22.7569 9.9358c-.1652-.2888-.4029-.52863-.6891-.69538-.2863-.16674-.611-.25453-.9415-.25453-.3306 0-.6553.08779-.9415.25453-.2863.16675-.524.40658-.6892.69538l-1.7874 3.1252-3.4946-6.11123c-.1653-.28878-.4031-.52857-.6894-.69529C13.2378 6.08777 12.9131 6 12.5825 6s-.6554.08777-.9417.25448c-.2864.16672-.5241.40651-.6895.69529L2.25282 22.1501c-.16548.2887-.25268.6163-.25282.9498-.00014.3335.08677.6612.252.95.16524.2889.40296.5288.68927.6956.2863.1668.61109.2545.9417.2545h6.53373c2.5888 0 4.4979-1.1471 5.8116-3.3852l3.1892-5.5719 1.7083-2.9819 5.1268 8.957h-6.8351L17.7082 25Zm-7.398-2.985-4.55972-.0011 6.83502-11.942 3.4104 5.971-2.2834 3.9909c-.8724 1.4521-1.8634 1.9812-3.4023 1.9812Z"
@@ -168,7 +168,7 @@ export const MiniBento = () => {
             xmlns="http://www.w3.org/2000/svg"
             viewBox="0 0 35 35"
             fill="none"
-            class="w-7 h-7 md:w-9 md:h-9"
+            class="w-5 h-5 md:w-9 md:h-9"
           >
             <title>stitches</title>
             <circle
@@ -226,7 +226,7 @@ export const MiniBento = () => {
             y="0px"
             viewBox="-7 -11 111 111"
             enable-background="new 0 0 97 97"
-            class="w-7 h-7 md:w-9 md:h-9"
+            class="w-5 h-5 md:w-9 md:h-9"
           >
             <g>
               <path
@@ -252,7 +252,7 @@ export const MiniBento = () => {
         rel="noopener noreferrer"
       >
         <div class="absolute inset-0 flex items-center justify-center bg-[#00000077]">
-          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" class="w-7 h-7 md:w-9 md:h-9">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" class="w-5 h-5 md:w-9 md:h-9">
             <title>file_type_npm</title>
             <path
               d="M2,10.555H30v9.335H16v1.556H9.778V19.889H2Zm1.556,7.779H6.667V13.666H8.222v4.667H9.778V12.111H3.556Zm7.778-6.223v7.779h3.111V18.334h3.111V12.111Zm3.111,1.556H16v3.112H14.444Zm4.667-1.556v6.223h3.111V13.666h1.556v4.667h1.556V13.666h1.556v4.667h1.556V12.111Z"
@@ -270,7 +270,7 @@ export const MiniBento = () => {
         rel="noopener noreferrer"
       >
         <div class="absolute inset-0 flex items-center justify-center bg-[#00000077]">
-          <svg viewBox="0 0 32 32" class="w-7 h-7 md:w-9 md:h-9">
+          <svg viewBox="0 0 32 32" class="w-5 h-5 md:w-9 md:h-9">
             <defs>
               <radialGradient
                 id="a"
@@ -314,7 +314,7 @@ export const MiniBento = () => {
             xmlns="http://www.w3.org/2000/svg"
             fill="none"
             viewBox="0 0 32 32"
-            class="w-7 h-7 md:w-9 md:h-9"
+            class="w-5 h-5 md:w-9 md:h-9"
           >
             <title>file_type_vite</title>
             <path
@@ -364,7 +364,7 @@ export const MiniBento = () => {
         rel="noopener noreferrer"
       >
         <div class="absolute inset-0 flex items-center justify-center bg-[#00000077]">
-          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" class="w-7 h-7 md:w-9 md:h-9">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" class="w-5 h-5 md:w-9 md:h-9">
             <title>file_type_yaml</title>
             <path
               d="M2,12.218c.755,0,1.51-.008,2.264,0l.053.038Q5.7,13.638,7.078,15.014c.891-.906,1.8-1.794,2.7-2.7.053-.052.11-.113.192-.1.608,0,1.215,0,1.823,0a1.4,1.4,0,0,1,.353.019c-.7.67-1.377,1.369-2.069,2.05L5.545,18.8c-.331.324-.648.663-.989.975-.754.022-1.511.007-2.266.007,1.223-1.209,2.431-2.433,3.658-3.637C4.627,14.841,3.318,13.525,2,12.218Z"

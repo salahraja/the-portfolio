@@ -20,3 +20,15 @@ Feel free to check [our documentation](https://docs.astro.build) or jump into ou
 ## Thank you
 
 Big thank you to luisadriannu(https://github.com/luisadriannu)
+
+## Weather
+
+The weather card calls this site's own `/api/weather` (a Netlify function in `netlify/functions/weather.mjs`),
+which holds the OpenWeatherMap key. Set it in Netlify under Site configuration → Environment variables as
+`OPENWEATHER_API_KEY`. Without it the card says "Weather unavailable". The key must never be put in `src/`:
+anything there is sent to every visitor.
+
+## Tests
+
+`npm test` runs the Playwright suite against a production build; `npm run test:unit` tests the weather function;
+`npm run test:visual` compares screenshots (`npm run test:update-visual` after an intended layout change).

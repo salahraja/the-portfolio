@@ -1,27 +1,10 @@
-const getCoords = () =>
-  new Promise((resolve) => {
-    if (!navigator.geolocation) {
-      resolve(null);
-      return;
-    }
-    navigator.geolocation.getCurrentPosition(
-      (pos) =>
-        resolve({ lat: pos.coords.latitude, lon: pos.coords.longitude }),
-      () => resolve(null),
-      { timeout: 5000 }
-    );
-  });
-
+// Weather comes from our own /api/weather (a Netlify function), which holds the API key.
+// It is always Chicago: the card is about where the site's owner is, and asking every visitor
+// for their location just to load a page triggers a browser permission prompt.
 export const getWeather = async () => {
   try {
-    const appId = "23be4d8794397dd3f0ffaba6e3b678d1";
-    const coords = await getCoords();
-
-    const url = coords
-      ? `https://api.openweathermap.org/data/2.5/weather?lat=${coords.lat}&lon=${coords.lon}&lang=es&units=imperial&appid=${appId}`
-      : `https://api.openweathermap.org/data/2.5/weather?q=Chicago&lang=es&units=imperial&appid=${appId}`;
-
-    const res = await fetch(url);
+    // A request that never answers must not leave the card on "Loading.." forever.
+    const res = await fetch("/api/weather", { signal: AbortSignal.timeout(8000) });
     if (!res.ok) {
       throw { status: res.status, statusText: res.statusText };
     }

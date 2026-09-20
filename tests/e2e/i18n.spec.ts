@@ -85,7 +85,6 @@ test.describe("widgets follow the page language", () => {
   });
 
   test("the Spanish page's own HTML is Spanish before any JavaScript runs", async ({ browser }) => {
-    knownBug("DiscordStatus starts as 'My Projects' and only switches after hydration, so /es/'s served HTML is English");
     const context = await browser.newContext({ javaScriptEnabled: false });
     const page = await context.newPage();
     await stubExternal(page);

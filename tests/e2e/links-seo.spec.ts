@@ -17,7 +17,6 @@ test.describe("links", () => {
   });
 
   test("the mail link uses a plain mailto: with no forced new tab", async ({ page }) => {
-    knownBug("the mailto: card has target=_blank, which opens a blank tab in some browsers before the mail app");
     await open(page, "/");
     const mail = page.locator('a[href^="mailto:"]');
     await expect(mail).toHaveCount(1);
@@ -67,7 +66,6 @@ for (const { path, lang } of PAGES) {
     });
 
     test("its meta description is the page's own description", async ({ page }) => {
-      knownBug("Layout.astro hard-codes content='Astro description' and ignores the description prop each page passes");
       await open(page, path);
       const description = await page.locator('meta[name="description"]').getAttribute("content");
       expect(description).not.toBe("Astro description");
@@ -89,13 +87,11 @@ test.describe("things that must never ship", () => {
   }
 
   test("no API key is committed in client-side source", async () => {
-    knownBug("src/services/getWeather.js hard-codes an OpenWeatherMap key that is sent to every visitor's browser");
     const hits = sourceFiles("src").filter((file) => SECRET.test(readFileSync(file, "utf8")));
     expect(hits).toEqual([]);
   });
 
   test("no API key is present in the built JavaScript", async () => {
-    knownBug("the OpenWeatherMap key is bundled into the built client JavaScript");
     // Minified code renames every variable, so look for the shape of the leak:
     // a bundle that talks to OpenWeatherMap and holds a 32-character hex literal.
     const hits = sourceFiles("dist").filter((file) => {

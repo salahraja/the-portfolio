@@ -37,9 +37,9 @@ const CARD_TESTS: {
   bug: string;
   knownBad: Partial<Record<"en" | "es", number[]>>;
 }[] = [
-  { name: "years of experience", match: "years of experience|años de experiencia", bug: "from 768px up, the text-8xl '2' plus its uppercase label are taller than the square card and get cut off", knownBad: { en: [768, 1024, 1280, 1440], es: [768, 1024, 1280, 1440] } },
+  { name: "years of experience", match: "years of experience|años de experiencia", bug: "from 768px up, the text-8xl '2' plus its uppercase label are taller than the square card and get cut off", knownBad: {} },
   { name: "GitHub", match: "^github", bug: "the description wraps to more lines than the fixed 140px card holds", knownBad: {} },
-  { name: "Projects", match: "projects and works|proyectos y trabajos", bug: "at 320px the description is cut off mid-sentence ('Follow this link to see my p…')", knownBad: { en: [320], es: [320] } },
+  { name: "Projects", match: "projects and works|proyectos y trabajos", bug: "at 320px the description is cut off mid-sentence ('Follow this link to see my p…')", knownBad: {} },
   { name: "intro", match: "assalaalaikum|hola, soy", bug: "intro copy runs past the card", knownBad: {} },
 ];
 const CARDS_WITH_OWN_TESTS = ["years of experience", "años de experiencia", "github", "projects and works", "proyectos y trabajos", "loading", "°"];
@@ -118,9 +118,6 @@ for (const { path, lang } of PAGES) {
       }
 
       test("the weather text does not sit on top of its sun/moon graphic", async ({ page }) => {
-        if (viewport.width >= 768) {
-          knownBug("from 768px up the weather text and the sun/moon graphic occupy the same space");
-        }
         const overlap = await page.evaluate(`(() => {
           ${TEXT_RECTS_JS}
           const graphic = document.querySelector('[class*="TimeCard_container"]');
@@ -182,9 +179,6 @@ for (const { path, lang } of PAGES) {
       test("every tech icon fits inside its tile", async ({ page }) => {
         // Regression: "Fix mobile-tiny icon grid". On phones each tile is
         // 26px but the icon is 28px, so all thirteen are cut off.
-        if (viewport.width < 768) {
-          knownBug("on phones the 28px icons sit in 26px tiles, so all 13 are clipped (w-7 h-7 in a w-32 grid)");
-        }
         const { clipped, tiles } = await bentoMetrics(page);
         expect(tiles).toBeGreaterThan(0);
         expect(clipped).toEqual([]);

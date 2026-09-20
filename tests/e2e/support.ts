@@ -18,7 +18,7 @@ export const VIEWPORTS = [
 ] as const;
 
 export const LANYARD = /api\.lanyard\.rest/;
-export const WEATHER = /api\.openweathermap\.org/;
+export const WEATHER = /\/api\/weather/;
 
 type Spotify = "idle" | "listening" | "error" | "hang" | "long-title" | "bad-art";
 type Weather = "ok" | "error" | "hang";

@@ -1,15 +1,12 @@
 import { useState, useEffect } from "preact/hooks";
 import { getInfo } from "../services/getInfo";
 
-export const SpotifyStatus = () => {
+const OFFLINE_ART = "/assets/spotify-offline.jpeg";
+
+export const SpotifyStatus = ({ lang = "en" }) => {
   const [activityData, setActivityData] = useState(null);
   const [isLoading, setIsLoading] = useState(true);
-  const [language, setLanguage] = useState("en");
-
-  useEffect(() => {
-    const userLanguage = document.documentElement.getAttribute("lang");
-    setLanguage(userLanguage);
-  }, []);
+  const language = lang;
 
   useEffect(() => {
     const fetchData = async () => {
@@ -74,7 +71,11 @@ export const SpotifyStatus = () => {
       <img
         loading="lazy"
         class="absolute w-full h-full top-0 left-0 object-center object-cover z-[-1]"
-        src={spotify === null ? "/assets/spotify-offline.jpeg" : spotify.album_art_url}
+        src={spotify === null ? OFFLINE_ART : spotify.album_art_url}
+        // An album-art link from Spotify can expire; show the offline art instead of a broken image.
+        onError={(event) => {
+          if (!event.currentTarget.src.endsWith(OFFLINE_ART)) event.currentTarget.src = OFFLINE_ART;
+        }}
         alt="Spotify Album"
       ></img>
     </div>

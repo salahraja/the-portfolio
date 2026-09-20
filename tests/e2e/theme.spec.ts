@@ -66,7 +66,6 @@ test("it can be operated from the keyboard", async ({ page }) => {
 });
 
 test("the switch has an accessible name", async ({ page }) => {
-  knownBug("the checkbox sits inside a <label> that contains only icons, so a screen reader hears an unnamed checkbox");
   await open(page, "/");
-  await expect(page.getByRole("checkbox", { name: /dark|theme|mode/i })).toHaveCount(1);
+  await expect(page.getByRole("switch", { name: /dark|theme|mode/i })).toHaveCount(1);
 });

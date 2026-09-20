@@ -2,18 +2,13 @@ import { useState, useEffect } from "preact/hooks";
 import { getWeather } from "../services/getWeather";
 import "./Styles.css";
 
-function ShowTime() {
+function ShowTime({ lang = "en" }) {
   const [currentHours, setCurrentHours] = useState(getCurrentHours());
   const [hourConditional, setHourConditional] = useState(getHoursConditional());
   const [weather, setWeather] = useState(null);
   const [isLoading, setIsLoading] = useState(true);
-  const [language, setLanguage] = useState("en");
-
-  //  LANGUAGE
-  useEffect(() => {
-    const userLanguage = document.documentElement.getAttribute("lang");
-    setLanguage(userLanguage);
-  }, []);
+  const [failed, setFailed] = useState(false);
+  const language = lang;
 
   // CLIMA
   useEffect(() => {
@@ -21,9 +16,11 @@ function ShowTime() {
       try {
         const data = await getWeather();
         setWeather(data);
+        setFailed(false);
         setIsLoading(false);
       } catch (err) {
         console.error("Error al obtener datos:", err);
+        setFailed(true);
         setIsLoading(false);
       }
     };
@@ -78,14 +75,14 @@ function ShowTime() {
   if (isLoading) {
     return (
       <div class="bg-[#089cffa4] relative w-full h-full flex overflow-hidden bg-clip-padding text-white py-2 px-4 lg:p-8">
-        <div class="flex flex-col justify-center lg:h-full w-2/3 absolute lg:static z-10">
+        <div class="flex flex-col justify-center lg:justify-start lg:h-full w-2/3 absolute lg:static z-10">
           <p class="text-white capitalize text-xs md:text-xl lg:text-2xl font-semibold lg:mb-0">
             {language === "en" ? "Loading.." : "Cargando.."}
           </p>
         </div>
-        <div class="absolute right-0 top-0 flex z-0 items-center w-full h-full overflow-hidden justify-end">
-          <div class="TimeCard_hot__Br_X1 TimeCard_container__bLNa3 w-16 h-16 md:w-24 md:h-24 right-5">
-            <span class="TimeCard_sun___9W9H w-8 h-8 md:w-12 md:h-12"></span>
+        <div class="absolute right-0 top-0 flex z-0 items-center lg:items-end lg:pb-4 w-full h-full overflow-hidden justify-end">
+          <div class="TimeCard_hot__Br_X1 TimeCard_container__bLNa3 w-16 h-16 md:w-14 md:h-14 lg:w-16 lg:h-16 right-5 md:right-2 lg:right-4">
+            <span class="TimeCard_sun___9W9H w-8 h-8 md:w-7 md:h-7 lg:w-8 lg:h-8"></span>
             <span class="TimeCard_sunx__Dp1CZ"></span>
           </div>
         </div>
@@ -99,16 +96,24 @@ function ShowTime() {
         hourConditional >= 8 && hourConditional <= 18
           ? "bg-[#089cffa4]"
           : "bg-[#001324]"
-      } relative w-full h-full flex overflow-hidden bg-clip-padding text-white py-2 px-4 lg:p-8`}
+      } relative w-full h-full flex overflow-hidden bg-clip-padding text-white py-2 px-4 lg:p-4`}
     >
-      <div class="flex flex-col justify-center lg:h-full w-2/3 absolute lg:static z-10">
+      <div class="flex flex-col justify-center lg:justify-start lg:h-full w-2/3 lg:w-full absolute lg:static z-10">
         <div>
-          <p class="text-lg md:text-5xl lg:text-7xl font-bold">
-            {weather?.temp}°
-          </p>
-          <p class="capitalize text-xs md:text-xl lg:text-2xl font-semibold lg:mb-0">
-            {language === "en" ? weather?.weather : weather?.weatherEs}
-          </p>
+          {weather ? (
+            <>
+              <p class="text-lg md:text-5xl lg:text-5xl font-bold">
+                {weather.temp}°
+              </p>
+              <p class="capitalize text-xs md:text-base lg:text-lg font-semibold lg:mb-0">
+                {language === "en" ? weather.weather : weather.weatherEs}
+              </p>
+            </>
+          ) : (
+            <p class="text-xs md:text-xl lg:text-2xl font-semibold lg:mb-0">
+              {language === "en" ? "Weather unavailable" : "Clima no disponible"}
+            </p>
+          )}
           <p class="text-xs md:text-md lg:text-lg">{currentHours}</p>
           <p class="text-xs md:text-md lg:text-lg">
             {weather?.city
@@ -121,16 +126,16 @@ function ShowTime() {
       </div>
 
       {hourConditional >= 8 && hourConditional <= 18 ? (
-        <div class="absolute right-0 top-0 flex z-0 items-center w-full h-full overflow-hidden justify-end">
-          <div class="TimeCard_hot__Br_X1 TimeCard_container__bLNa3 w-16 h-16 md:w-24 md:h-24 right-5">
-            <span class="TimeCard_sun___9W9H w-8 h-8 md:w-12 md:h-12"></span>
+        <div class="absolute right-0 top-0 flex z-0 items-center lg:items-end lg:pb-4 w-full h-full overflow-hidden justify-end">
+          <div class="TimeCard_hot__Br_X1 TimeCard_container__bLNa3 w-16 h-16 md:w-14 md:h-14 lg:w-16 lg:h-16 right-5 md:right-2 lg:right-4">
+            <span class="TimeCard_sun___9W9H w-8 h-8 md:w-7 md:h-7 lg:w-8 lg:h-8"></span>
             <span class="TimeCard_sunx__Dp1CZ"></span>
           </div>
         </div>
       ) : (
-        <div class="absolute right-0 top-0 flex justify-end z-0 items-center w-full h-full overflow-hidden">
-          <div class="TimeCard_night__BfZ0q TimeCard_container__bLNa3 w-16 h-16 md:w-24 md:h-24 right-5">
-            <span class="TimeCard_moon__scQu9 w-8 h-8 md:w-12 md:h-12"></span>
+        <div class="absolute right-0 top-0 flex justify-end z-0 items-center lg:items-end lg:pb-4 w-full h-full overflow-hidden">
+          <div class="TimeCard_night__BfZ0q TimeCard_container__bLNa3 w-16 h-16 md:w-14 md:h-14 lg:w-16 lg:h-16 right-5 md:right-2 lg:right-4">
+            <span class="TimeCard_moon__scQu9 w-8 h-8 md:w-7 md:h-7 lg:w-8 lg:h-8"></span>
             <span class="TimeCard_spot1__SaOIN"></span>
             <span class="TimeCard_spot2__Cq_4z"></span>
             <ul>
