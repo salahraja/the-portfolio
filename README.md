@@ -23,12 +23,17 @@ Big thank you to luisadriannu(https://github.com/luisadriannu)
 
 ## Weather
 
-The weather card calls this site's own `/api/weather` (a Netlify function in `netlify/functions/weather.mjs`),
-which holds the OpenWeatherMap key. Set it in Netlify under Site configuration → Environment variables as
-`OPENWEATHER_API_KEY`. Without it the card says "Weather unavailable". The key must never be put in `src/`:
-anything there is sent to every visitor.
+The weather card needs no API key and no server:
+
+- **Temperature and conditions** come straight from [Open-Meteo](https://open-meteo.com) (free for non-commercial use;
+  weather data by Open-Meteo.com, CC BY 4.0). It is always Chicago, so visitors are never asked for their location.
+- **The radar image** behind the text is from [LibreWXR](https://github.com/JoshuaKimsey/LibreWXR), a free, open-source,
+  Rain Viewer-compatible radar service (AGPL-3.0, using NOAA MRMS radar data in the US), through its public instance.
+  If that service is down the card simply goes without the image.
+
+Both requests go from the visitor's browser, so nothing secret can live here: never put a key in `src/`.
 
 ## Tests
 
-`npm test` runs the Playwright suite against a production build; `npm run test:unit` tests the weather function;
+`npm test` runs the Playwright suite against a production build; `npm run test:unit` tests the weather code table and reply parsing;
 `npm run test:visual` compares screenshots (`npm run test:update-visual` after an intended layout change).

@@ -71,7 +71,7 @@ test.describe("widgets follow the page language", () => {
   test("Spanish page: Spotify and weather speak Spanish", async ({ page }) => {
     await open(page, "/es/", { spotify: "listening" });
     await expect(page.getByText("Escuchando ahora")).toBeVisible();
-    await expect(page.getByText("cielo claro")).toBeVisible();
+    await expect(page.getByText("cielo despejado")).toBeVisible();
     await expect(page.getByText("En Chicago", { exact: true })).toBeVisible();
     await expect(page.getByText("Mis Proyectos", { exact: true })).toBeVisible();
   });

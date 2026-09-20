@@ -103,12 +103,28 @@ test.describe("time and weather", () => {
     });
   }
 
-  test("asks the site's own /api/weather, never OpenWeatherMap directly (the key stays on the server)", async ({ page }) => {
+  test("talks only to Open-Meteo and LibreWXR, and sends no API key anywhere", async ({ page }) => {
     const requests: string[] = [];
-    page.on("request", (r) => /\/api\/weather|openweathermap/.test(r.url()) && requests.push(r.url()));
+    page.on("request", (r) => /open-meteo|librewxr|openweathermap|appid|api[_-]?key/i.test(r.url()) && requests.push(r.url()));
     await open(page, "/");
     expect(requests.length).toBeGreaterThan(0);
-    expect(requests.every((url) => /\/api\/weather$/.test(url))).toBe(true);
+    expect(requests.some((url) => /openweathermap/.test(url))).toBe(false);
+    expect(requests.every((url) => !/appid=|api[_-]?key=/i.test(url))).toBe(true);
+    expect(requests.every((url) => /api\.open-meteo\.com|api\.librewxr\.net/.test(url))).toBe(true);
+  });
+
+  test("shows a live radar image of Chicago in the weather card, described for a screen reader", async ({ page }) => {
+    await open(page, "/", { weather: "ok" });
+    const radar = weatherCard(page).locator("img");
+    await expect(radar).toHaveCount(1);
+    await expect(radar).toHaveAttribute("alt", "Live rain radar around Chicago");
+    await expect(radar).toHaveAttribute("src", /api\.librewxr\.net\/v2\/radar\/0\/256\/6\/41\.88\/-87\.63/);
+  });
+
+  test("if the radar service is down the card still shows the weather, without a broken image", async ({ page }) => {
+    await open(page, "/", { radar: "error" });
+    await expect(weatherCard(page)).toContainText("71°");
+    await expect(weatherCard(page).locator("img")).toHaveCount(0);
   });
 
   test("does not ask the visitor for their location just for loading the page", async ({ page }) => {

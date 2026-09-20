@@ -2,6 +2,28 @@ import { useState, useEffect } from "preact/hooks";
 import { getWeather } from "../services/getWeather";
 import "./Styles.css";
 
+// Live precipitation radar centred on Chicago, from LibreWXR (https://github.com/JoshuaKimsey/LibreWXR),
+// a free, open-source Rain Viewer-compatible service. Timestamp 0 means "the latest frame". The tile is
+// transparent where nothing is falling, so on a dry day the card looks the same as before.
+const RADAR_URL = "https://api.librewxr.net/v2/radar/0/256/6/41.88/-87.63/2/1_1.png";
+
+function Radar({ language }) {
+  const [ok, setOk] = useState(true);
+  if (!ok) return null;
+  return (
+    <img
+      src={RADAR_URL}
+      loading="lazy"
+      width="256"
+      height="256"
+      alt={language === "en" ? "Live rain radar around Chicago" : "Radar de lluvia en vivo alrededor de Chicago"}
+      class="absolute inset-0 w-full h-full object-cover opacity-60 pointer-events-none z-0"
+      // If the radar service is down, the card just goes without it.
+      onError={() => setOk(false)}
+    />
+  );
+}
+
 function ShowTime({ lang = "en" }) {
   const [currentHours, setCurrentHours] = useState(getCurrentHours());
   const [hourConditional, setHourConditional] = useState(getHoursConditional());
@@ -98,6 +120,7 @@ function ShowTime({ lang = "en" }) {
           : "bg-[#001324]"
       } relative w-full h-full flex overflow-hidden bg-clip-padding text-white py-2 px-4 lg:p-4`}
     >
+      <Radar language={language} />
       <div class="flex flex-col justify-center lg:justify-start lg:h-full w-2/3 lg:w-full absolute lg:static z-10">
         <div>
           {weather ? (

@@ -18,7 +18,8 @@ export const VIEWPORTS = [
 ] as const;
 
 export const LANYARD = /api\.lanyard\.rest/;
-export const WEATHER = /\/api\/weather/;
+export const WEATHER = /api\.open-meteo\.com/;
+export const RADAR = /api\.librewxr\.net/;
 
 type Spotify = "idle" | "listening" | "error" | "hang" | "long-title" | "bad-art";
 type Weather = "ok" | "error" | "hang";
@@ -26,6 +27,7 @@ type Weather = "ok" | "error" | "hang";
 export interface Stubs {
   spotify?: Spotify;
   weather?: Weather;
+  radar?: "ok" | "error";
 }
 
 const json = (route: Route, body: unknown, status = 200) =>
@@ -67,14 +69,17 @@ export async function stubExternal(page: Page, stubs: Stubs = {}) {
   await page.route("https://cdn.test/expired-art.jpg", (route) => route.fulfill({ status: 404 }));
 
   await page.route(WEATHER, (route) => {
-    if (weather === "error") return json(route, { message: "server error" }, 500);
+    if (weather === "error") return json(route, { reason: "server error" }, 500);
     if (weather === "hang") return;
-    return json(route, {
-      main: { temp: 71.4 },
-      weather: [{ main: "Clear", description: "cielo claro" }],
-      name: "Chicago",
-    });
+    return json(route, { current: { temperature_2m: 71.4, weather_code: 0 } });
   });
+
+  // The radar image: a real (transparent) PNG by default; "radar: error" makes the service fail.
+  await page.route(RADAR, (route) =>
+    stubs.radar === "error"
+      ? route.fulfill({ status: 503 })
+      : route.fulfill({ status: 200, contentType: "image/png", body: PIXEL }),
+  );
 }
 
 /** Load a page with both APIs stubbed and wait for the widgets to settle. */
