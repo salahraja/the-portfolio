@@ -1,9 +1,17 @@
+import { existsSync } from "node:fs";
 import { defineConfig, devices } from "@playwright/test";
 
 // Test the deployed site instead of a local build:
 //   PORTFOLIO_URL=https://your-site.netlify.app npm test
 const remote = process.env.PORTFOLIO_URL;
 const PORT = 4322;
+
+// Which Chromium to drive. Brave is used when it is installed; BROWSER_PATH points at any other
+// Chromium-based browser, and BROWSER_PATH=playwright uses the Chromium Playwright downloads itself.
+const BRAVE = "/Applications/Brave Browser.app/Contents/MacOS/Brave Browser";
+const chosen = process.env.BROWSER_PATH;
+const executablePath =
+  chosen === "playwright" ? undefined : chosen ?? (existsSync(BRAVE) ? BRAVE : undefined);
 
 export default defineConfig({
   testDir: "tests/e2e",
@@ -25,6 +33,7 @@ export default defineConfig({
     // Browsers ask permission for location; a test that reaches that prompt
     // would hang. Location behaviour is tested explicitly with a stub.
     permissions: [],
+    launchOptions: { executablePath },
   },
   projects: [{ name: "chromium", use: { ...devices["Desktop Chrome"] } }],
   // Tests run against the production build (what actually ships), not the
